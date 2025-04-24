@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temu - 10 AZN Hədiyyə</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f7f7f7;
+    }
+    img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #FF6720;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    button {
+      background-color: #FF6720;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    video {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 400px;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Temu_logo.svg" alt="Temu" class="logo">
+  <h2>10 AZN Temu Hədiyyəsi Qazandın!</h2>
+  <p>Kampaniyadan faydalanmaq üçün kameranı aktiv et.</p>
+  <button onclick="startCamera()">Kameranı Aktiv Et</button>
+
+  <video id="video" autoplay playsinline></video>
+
+  <script>
+    function startCamera() {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById('video').srcObject = stream;
+        })
+        .catch(error => {
+          alert("Kamera icazəsi tələb olunur!");
+          console.error(error);
+        });
+    }
+  </script>
+
+</body>
+</html>
